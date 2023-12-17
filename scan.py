@@ -2,6 +2,7 @@ import sys
 from pathlib import Path
 
 
+dir_names = ('Archives', 'Video', 'Audio', 'Documents', 'Images', 'Others')
 jpeg_files = list()
 png_files = list()
 jpg_files = list()
@@ -50,7 +51,7 @@ def get_extensions(file_name):
 def scan(folder):
     for item in folder.iterdir():
         if item.is_dir():
-            if item.name not in ('Pictures', 'Video', 'Documents', 'Music', 'Archives', 'Unknown'):
+            if item.name not in dir_names:
                 folders.append(item)
                 scan(item)
             continue
@@ -75,3 +76,33 @@ if __name__ == '__main__':
     print(f"Start in folder name: {path}")
     folder = Path(path)
     scan(folder)
+    # print(scan(folder))
+
+    # print("*"*15)
+    # print(f"jpeg: {jpeg_files}")
+    # print(f"png: {png_files}")
+    # print(f"jpg: {jpg_files}")
+    # print(f"svg: {svg_files}")
+    # print("*"*15)
+    # print(f"avi: {avi_files}")
+    # print(f"mp4: {mp4_files}")
+    # print(f"mov: {mov_files}")
+    # print(f"mkv: {mkv_files}")
+    # print("*"*15)
+    # print(f"doc: {doc_files}")
+    # print(f"docx: {docx_files}")
+    # print(f"txt: {txt_files}")
+    # print(f"pdf: {pdf_files}")
+    # print(f"xlsx: {xlsx_files}")
+    # print(f"pptx: {pptx_files}")
+    # print("*"*15)
+    # print(f"zip archive: {zip_files}")
+    # print(f"gz archive: {gz_files}")
+    # print(f"tar archive: {tar_files}")
+    # print("*"*15)
+    # print(f"unkown files: {unknown_files}")
+    # print("*"*15)
+    # print(f"All extensions: {extensions}")
+    # print(f"Unknown extensions: {unknown}")
+    # print("*"*15)
+    # print(f"Folder: {folders}")
