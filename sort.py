@@ -18,7 +18,7 @@ def remove_empty_folders(path):
             try:
                 item.rmdir()
             except OSError:
-                pass
+                print("Not Empty")
 
 
 def main(folder_path):
@@ -95,7 +95,7 @@ def main(folder_path):
 
 if __name__ == '__main__':
     path = sys.argv[1]
-    print(f'Start in {path}')
+    print(f'Start in folder name: {path}')
 
     folder = Path(path)
     main(folder.resolve())
